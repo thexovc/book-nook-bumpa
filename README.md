@@ -39,8 +39,12 @@ src/
 │   ├── index.tsx                 # Catalog Browse screen
 │   ├── cart.tsx                  # Shopping Cart screen
 │   ├── checkout.tsx              # Secure checkout & payment screen
-│   └── book/
-│       └── [id].tsx              # Book Details (Lifecycle requirement #1)
+│   ├── book/
+│   │   └── [id].tsx              # Book Details (Lifecycle requirement #1)
+│   ├── reader/
+│   │   └── [id].tsx              # In-app book reader screen
+│   └── transaction/
+│       └── [id].tsx              # Order receipt & transaction details
 │
 ├── components/                   # Reusable UI elements
 │   ├── BookCard.tsx              # Grid item card representing a book listing
