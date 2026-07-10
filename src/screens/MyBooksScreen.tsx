@@ -117,7 +117,7 @@ function OrderCard({ item, index, onViewDetails }: OrderCardProps) {
           {item.items.map((cartItem) => (
             <View key={cartItem.book.id} className="flex-row items-center gap-3">
               {/* Larger cover in detail */}
-              <TouchableOpacity onPress={() => onViewDetails(item.orderId)} className="w-[56px] h-[80px] rounded-xl overflow-hidden bg-brand-bg border border-brand-border/40 shadow-sm">
+              <TouchableOpacity onPress={() => router.push(`/reader/${cartItem.book.id}`)} className="w-[56px] h-[80px] rounded-xl overflow-hidden bg-brand-bg border border-brand-border/40 shadow-sm">
                 {cartItem.book.coverUrl ? (
                   <Image
                     source={{ uri: cartItem.book.coverUrl }}
