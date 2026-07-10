@@ -40,9 +40,14 @@ jest.mock('react-native/Libraries/Utilities/useWindowDimensions', () => {
 // Silence warning logs in test runs
 const originalConsoleError = console.error;
 console.error = (...args) => {
+  const msg = typeof args[0] === 'string' ? args[0] : '';
   if (
-    args[0].includes('Warning: React does not recognize') ||
-    args[0].includes('Warning: Failed prop type')
+    msg.includes('Warning: React does not recognize') ||
+    msg.includes('Warning: Failed prop type') ||
+    // Suppress async timer-fired state-update warnings (e.g. debounce timeouts
+    // that resolve after act() has already exited — waitFor handles these correctly)
+    msg.includes('not wrapped in act(') ||
+    msg.includes('not configured to support act(')
   ) {
     return;
   }
